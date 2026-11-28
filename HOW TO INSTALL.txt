@@ -28,9 +28,16 @@ Your data
 Updating the app later
  Upload the new index.html AND sw.js to the same repository (replace the old ones):
  repository page > "Add file" > "Upload files" > drag both in > "Commit changes".
- Wait about a minute, then open the Home Screen app, close it fully (swipe it away)
- and open it again - the second open loads the new version.
+ Check it went live: open https://<your-github-username>.github.io/shot-list/ in Safari -
+ the version next to "SHOT LIST" at the top should match the new one. (This can take 1-2 minutes.)
+ Then on the phone: open the Home Screen app, wait 5 seconds, swipe it closed, open it again.
+ From version v12.01 on, later updates show on the first open.
  Your lists and ticks stay on the phone. A new batch list is added automatically
  and opens first; a list you deleted is never added back.
 
- 2026.12.01 update (28 Nov): adds "Photo list 2026.12.01" (Batch 24, 25 lines, 66 photos).
+ v12.01 (28 Nov): adds "Photo list 2026.12.01" (Batch 24, 25 lines, 66 photos) and makes
+ the app always load the newest version from GitHub when online.
+
+If the list still doesn't appear
+ Use the list picker at the top (tap the list name) - "Photo list 2026.12.01" may be there.
+ Or tap "+ New" and paste the Category / Subcategory / Up To table from the assignment email.

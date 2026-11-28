@@ -128,7 +128,7 @@ main .wrap{padding-block:14px 40px;display:grid;gap:10px}
 
 <header class="top">
   <div class="wrap">
-    <div class="row"><span class="brand">Shot List</span><span class="status" id="status"></span></div>
+    <div class="row"><span class="brand">Shot List <span style="font-weight:600;letter-spacing:0;text-transform:none;opacity:.75">v12.01</span></span><span class="status" id="status"></span></div>
     <div class="row">
       <select class="listpick" id="listpick" aria-label="Task list"></select>
       <button class="iconbtn" id="managebtn" aria-label="Manage this list" title="Manage this list">•••</button>
@@ -487,7 +487,19 @@ function openBackup() {
       closeSheet(); Store.watchLists(Store.listsCb); toast('Backup restored'); });
   });
 }
-if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  const hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register('sw.js', {updateViaCache: 'none'}).then(reg => {
+    const check = () => reg.update().catch(() => {});
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+    setInterval(check, 30 * 60 * 1000);
+  }).catch(() => {});
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController) return;
+    try { if (sessionStorage.getItem('shotlist.reloaded')) return; sessionStorage.setItem('shotlist.reloaded', '1'); } catch (e) {}
+    location.reload();
+  });
+}
 
 /* ---------- boot ---------- */
 (async () => {
