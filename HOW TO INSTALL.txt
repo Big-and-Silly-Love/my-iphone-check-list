@@ -1,0 +1,36 @@
+SHOT LIST - standalone app (no Claude account needed)
+
+The app is the 6 files in this folder. It must be served from an https website
+for the iPhone "Add to Home Screen" and offline mode to work. Free option:
+
+GitHub Pages (free, permanent)
+ 1. Make a free account at github.com (on your Mac).
+ 2. Click "+" (top right) > New repository. Name it e.g. shot-list. Set Public. Create.
+ 3. On the new repository page click "uploading an existing file".
+    Drag in all 6 files from this folder (index.html, manifest.json, sw.js,
+    icon-180.png, icon-192.png, icon-512.png). Click "Commit changes".
+ 4. Settings > Pages > Source: "Deploy from a branch", Branch: main, folder / (root). Save.
+ 5. Wait about a minute. Your app address is:
+    https://<your-github-username>.github.io/shot-list/
+
+On your iPhone
+ 1. Open that address in Safari.
+ 2. Tap Share > Add to Home Screen > Add.
+ 3. Always open it from the Home Screen icon - the Home Screen app keeps its
+    own saved data, separate from the Safari tab.
+
+Your data
+ - Lists and ticks are saved on the phone only. Nothing is sent anywhere.
+ - Back up from the ••• button > Backup & restore (save a file or copy the text
+   into Notes). Restore the same way on a new phone.
+ - Deleting the Home Screen icon deletes its data, so back up first.
+
+Updating the app later
+ Upload the new index.html AND sw.js to the same repository (replace the old ones):
+ repository page > "Add file" > "Upload files" > drag both in > "Commit changes".
+ Wait about a minute, then open the Home Screen app, close it fully (swipe it away)
+ and open it again - the second open loads the new version.
+ Your lists and ticks stay on the phone. A new batch list is added automatically
+ and opens first; a list you deleted is never added back.
+
+ 2026.12.01 update (28 Nov): adds "Photo list 2026.12.01" (Batch 24, 25 lines, 66 photos).
